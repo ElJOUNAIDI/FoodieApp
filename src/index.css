@@ -41,3 +41,51 @@ nav a img{
     right: 0;
     z-index: 100;
 }
+.Cart  .order  .close{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.Cart  .order  .close:hover{
+    color: #DC3545;
+}
+.Cart i {
+    font-size: 20px;
+    cursor: pointer;
+}
+.Cart span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.Cart .info_payer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #EA7B0C;
+}
+.Cart .info_payer h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.Cart .info_payer button {
+    width: 100%;
+}
+
+/* ItemCard */
+.ItemCard .card h5{
+    margin-top: 11px;
+}
+.ItemCard .card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.ItemCard .delete{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.ItemCard .delete:hover{
+    color: #DC3545;
+}

@@ -1,19 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import FoodCart from './FoodCart'
-import  FoodData from '../data/dataFood'
 export default function FoodItems() {
+  const [foodData, setFoodData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchFood = async () => {
+      try {
+        const res = await fetch("https://free-food-menus-api-two.vercel.app/burgers");
+        if (!res.ok) throw new Error("Erreur lors de la récupération des données");
+        const data = await res.json();
+        setFoodData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFood();
+  }, []);
+
+  if (loading) return <p>Chargement...</p>;
+  if (error) return <p>❌ {error}</p>;
   return (
     <>
       <div className="container">
         <div className="row">
-          {FoodData.map((item) => {
+          {foodData.map((item) => {
             return <FoodCart 
             key={item.id}
             item={item}
             name={item.name}
-            price={item.menu[0].price}
-            image={item.image}
+            des={item.dsc}
+            price={item.price}
+            image={item.img}
              />
           })}
         </div>
