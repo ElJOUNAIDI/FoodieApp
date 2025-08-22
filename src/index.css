@@ -91,6 +91,11 @@ nav a img{
 /* ItemCard */
 .ItemCard .card h5{
     margin-top: 11px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ItemCard .card .price{
+    font-size: 15px;
 }
 .ItemCard .card img {
     width: 50px;

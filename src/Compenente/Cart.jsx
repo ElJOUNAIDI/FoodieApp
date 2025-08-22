@@ -15,16 +15,16 @@ function Cart() {
                 </div>
                 <div className='container'>
                     {
-                        cart.map((food) => {
+                        cart.length > 0 ? cart.map((food) => {
                             return (
                                 <ItemCard 
                                 key={food.id} 
                                 id={food.id}
                                 name={food.name}
                                 price={food.price}
-                                img={food.img} />
+                                image={food.image} />
                             )
-                        })
+                        }) :<h5> Your Cart is Empty</h5>
                     }
                 </div>
 
