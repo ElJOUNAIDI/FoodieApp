@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ItemCard() {
+export default function ItemCard(id , name ,price , img ) {
   return (
     <>
         <div className="ItemCard row mt-2">
@@ -16,7 +16,7 @@ export default function ItemCard() {
                         <span>1</span>
                         <i className="fa-solid fa-minus"></i>
                     </div>
-                    <i class="delete fa-solid fa-trash"></i>
+                    <i className="delete fa-solid fa-trash"></i>
                 </div>
             </div>
         </div>

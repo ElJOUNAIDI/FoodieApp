@@ -39,7 +39,22 @@ nav a img{
     position: fixed;
     top: 0%;
     right: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
     z-index: 100;
+}
+.Cart_shopping{
+    position: fixed;
+    right: 30px;
+    cursor: pointer;
+    z-index: 99;
+    top: 90%;
+    font-size: 31px;
+    color: #EA7B0C;
+}
+.Cart.active {
+  transform: translateX(0);
 }
 .Cart  .order  .close{
     cursor: pointer;

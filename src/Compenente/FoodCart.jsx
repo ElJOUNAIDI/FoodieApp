@@ -1,5 +1,8 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../redux/slices/CartSlice'
 export default function FoodCart({id , name, price , image , des}) {
+  const dispatch = useDispatch()
   return (
     <>
          <div className="col-md-4">
@@ -10,9 +13,8 @@ export default function FoodCart({id , name, price , image , des}) {
                 <p className="card-text">{des}</p>
                 <div className='d-flex justify-content-around align-items-center'>
                     <span>$ {price}</span>
-                    <button className="btn btn-warning">Add to cart</button>
+                    <button onClick={() => dispatch(addToCart({id , name , price , image }))} className="btn btn-warning">Add to cart</button>
                 </div>
-                
                 </div>
             </div>
          </div>

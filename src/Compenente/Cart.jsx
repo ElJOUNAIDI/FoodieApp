@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ItemCard from './Item Card';
-
+import { useSelector } from 'react-redux';
 function Cart() {
+    const [activeCart , setActiveCart] = useState(false)
+    const cart = useSelector(state => state.cart.cart)
     return (
         <>
-            <div className="Cart fixed top-0 ">
-                {/* <i className="fa-solid fa-cart-shopping"></i> */}
+        <i className=" Cart_shopping fa-solid fa-cart-shopping" onClick={() => setActiveCart(true)}></i>
+            <div className={`Cart fixed top-0 ${activeCart ? "active" : ""}`}>
+                
                 <div className='order d-flex justify-content-around align-items-center'>
                     <span>My Order</span>
-                    <i className="close fa-solid fa-circle-xmark"></i>
+                    <i className="close fa-solid fa-circle-xmark" onClick={() => setActiveCart(false)}></i>
                 </div>
                 <div className='container'>
-                    <ItemCard />
-                    <ItemCard />
-                    <ItemCard />
-                    <ItemCard />
+                    {
+                        cart.map((food) => {
+                            return (
+                                <ItemCard 
+                                key={food.id} 
+                                id={food.id}
+                                name={food.name}
+                                price={food.price}
+                                img={food.img} />
+                            )
+                        })
+                    }
                 </div>
 
                 <div className='info_payer t-5'>
