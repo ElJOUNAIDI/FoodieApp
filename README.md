@@ -1,71 +1,55 @@
-# Getting Started with Create React App
+FoodieApp est une application de commande de repas en ligne qui permet aux utilisateurs de découvrir des restaurants, consulter leurs menus et passer commande de manière fluide et rapide. 
+Fonctionnalités
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Affichage de la liste des restaurants depuis une API externe.
 
-## Available Scripts
+Consultation du menu détaillé d’un restaurant.
 
-In the project directory, you can run:
+Ajout et suppression d’articles dans le panier avec mise à jour en temps réel.
 
-### `npm start`
+Gestion des erreurs (API indisponible, données manquantes, problèmes de connexion).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Interface simple, responsive et performante, même avec beaucoup de données.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+User Stories
 
-### `npm test`
+Voir la liste des restaurants
+L’utilisateur peut consulter tous les restaurants disponibles récupérés depuis une API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Voir le menu d’un restaurant
+En cliquant sur un restaurant, l’utilisateur accède à son menu détaillé.
 
-### `npm run build`
+Gérer le panier
+L’utilisateur peut ajouter des plats au panier et visualiser les mises à jour instantanément.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Gestion des erreurs
+L’utilisateur est informé en cas de problème avec la connexion ou l’API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Performance
+L’application doit rester rapide et fluide, même avec beaucoup de données.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Technologies
 
-### `npm run eject`
+Frontend : React
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Gestion de l’état global : Redux ou Zustand
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+API : Fetch API avec async/await
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Débogage : React DevTools, Redux DevTools, console.log
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Optimisation : React.memo, composants séparés, chargement conditionnel
 
-## Learn More
+Structure de l'application
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Page d’accueil :
+Affiche la liste des restaurants récupérée via l’API.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Page restaurant :
+Affiche les détails d’un restaurant et son menu.
 
-### Code Splitting
+Page panier :
+Affiche les articles ajoutés avec mise à jour en temps réel grâce au store global (Redux/Zustand).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# FoodieApp
+Gestion d’erreurs :
+Affichage d’un message en cas de requête échouée ou de menu vide.

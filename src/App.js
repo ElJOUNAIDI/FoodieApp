@@ -4,7 +4,7 @@ import Seccess from './pages/Seccess';
 import Error from './pages/Error';
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/FoodieApp">
     <Routes>
       <Route path="/" element={<Home /> }/>
       <Route path="/seccess" element={<Seccess />} />
