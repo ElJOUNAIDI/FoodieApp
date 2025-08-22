@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { removeFromCart }  from '../redux/slices/CartSlice'
+import { removeFromCart , decreaseQuantity , addToCart }  from '../redux/slices/CartSlice'
 
-export default function ItemCard({id , name ,price , image} ) {
+export default function ItemCard({id , name ,price , image ,quantity} ) {
     const dispatch = useDispatch()
   return (
     <>
@@ -15,9 +15,9 @@ export default function ItemCard({id , name ,price , image} ) {
                         <span className='price m-auto ms-3'>{price} $</span>
                     </div>
                     <div className='d-flex gap-2 align-items-center border '>
-                        <i className="fa-solid fa-plus"></i>
-                        <span>1</span>
-                        <i className="fa-solid fa-minus"></i>
+                        <i onClick={() => dispatch(addToCart({ id, name, price, image }))} className="fa-solid fa-plus"></i>
+                        <span>{quantity}</span>
+                        <i onClick={() => dispatch(decreaseQuantity(name))} className="fa-solid fa-minus"></i>
                     </div>
                     <i onClick={() => dispatch(removeFromCart(id))} className="delete fa-solid fa-trash"></i>
                 </div>

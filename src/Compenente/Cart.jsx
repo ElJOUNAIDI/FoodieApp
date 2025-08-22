@@ -22,7 +22,8 @@ function Cart() {
                                 id={food.id}
                                 name={food.name}
                                 price={food.price}
-                                image={food.image} />
+                                image={food.image}
+                                quantity={food.quantity} />
                             )
                         }) :<h5> Your Cart is Empty</h5>
                     }
