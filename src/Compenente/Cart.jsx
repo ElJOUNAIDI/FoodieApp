@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ItemCard from './Item Card';
 import { useSelector } from 'react-redux';
 function Cart() {
     const [activeCart , setActiveCart] = useState(false)
-    const cart = useSelector(state => state.cart.cart)
+    const cart = useSelector((state) => state.cart.cart)
     return (
         <>
         <i className=" Cart_shopping fa-solid fa-cart-shopping" onClick={() => setActiveCart(true)}></i>

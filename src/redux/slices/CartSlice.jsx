@@ -4,14 +4,26 @@ import { createSlice } from "@reduxjs/toolkit";
 const CartSlice = createSlice({
     name : "cart",
     initialState : {
-        cart : []
+        cart : [],
     },
     reducers : {
         addToCart : (state , action) => {
-            state.cart.push(action.payload)
+            const existingItem = state.cart.find(item => item.name === action.payload.name);
+            if (existingItem) {
+                state.cart.map(item => item.name === action.payload.name ? {
+                    ...item,
+                    quantity: item.quantity + 1 
+                } : item ); ;
+            } 
+            else {
+                state.cart.push(action.payload)
+            }
         },
         removeFromCart : (state , action) => {
-            state.cart = state.cart.filter(item => item.id !== action.payload)
+            const index = state.cart.findIndex(item => item.id === action.payload);
+            if (index >= 0) {
+                state.cart.splice(index, 1);
+            }
         }
     }
 })
