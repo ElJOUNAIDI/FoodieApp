@@ -4,6 +4,7 @@ import { removeFromCart , decreaseQuantity , addToCart }  from '../redux/slices/
 
 export default function ItemCard({id , name ,price , image ,quantity} ) {
     const dispatch = useDispatch()
+    
   return (
     <>
         <div className="ItemCard row mt-2">

@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 function Cart() {
     const [activeCart , setActiveCart] = useState(false)
     const cart = useSelector((state) => state.cart.cart)
+    const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+    const totalAmount = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     return (
         <>
         <i className=" Cart_shopping fa-solid fa-cart-shopping" onClick={() => setActiveCart(true)}></i>
@@ -30,8 +32,8 @@ function Cart() {
                 </div>
 
                 <div className='info_payer t-5'>
-                    <h3>Items : </h3>
-                    <h3>Total Amount : </h3>
+                    <h3>Items : {totalItems} </h3>
+                    <h3>Total Amount : {totalAmount} $ </h3>
                     <hr />
                     <button className='btn btn-danger'>Checkout</button>
                 </div>

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import FoodCart from './FoodCart'
+import toast, { Toaster } from 'react-hot-toast';
 export default function FoodItems() {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const notify = () => toast.success('Food added to cart !');
+  
   useEffect(() => {
     const fetchFood = async () => {
       try {
@@ -26,6 +29,10 @@ export default function FoodItems() {
   if (error) return <p>❌ {error}</p>;
   return (
     <>
+      <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
       <div className="container">
         <div className="row">
           {foodData.map((item) => {
@@ -36,6 +43,7 @@ export default function FoodItems() {
             des={item.dsc}
             price={item.price}
             image={item.img}
+            notify={notify}
              />
           })}
         </div>
