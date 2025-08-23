@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import FoodCart from './FoodCart'
 import toast, { Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 export default function FoodItems() {
   const [foodData, setFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,6 +9,8 @@ export default function FoodItems() {
 
   const notify = (name) => toast.success(`${name} added to cart !`);
 
+  const searchTerm = useSelector((state) => state.search.query);
+  console.log(searchTerm);
   useEffect(() => {
     const fetchFood = async () => {
       try {
@@ -27,6 +30,10 @@ export default function FoodItems() {
 
   if (loading) return <p>Chargement...</p>;
   if (error) return <p>❌ {error}</p>;
+
+  const filteredFood = foodData.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <>
       <Toaster
@@ -35,17 +42,21 @@ export default function FoodItems() {
         />
       <div className="container">
         <div className="row">
-          {foodData.map((item) => {
-            return <FoodCart 
-            key={item.id}
-            item={item}
-            name={item.name}
-            des={item.dsc}
-            price={item.price}
-            image={item.img}
-            notify={notify}
-             />
-          })}
+          {filteredFood.length > 0 ? (
+            filteredFood.map((item) => (
+              <FoodCart 
+                key={item.id}
+                item={item}
+                name={item.name}
+                des={item.dsc}
+                price={item.price}
+                image={item.img}
+                notify={notify}
+              />
+            ))
+          ) : (
+            <p>Aucun repas trouvé pour "{searchTerm}"</p>
+          )}
         </div>
       </div>
     </>
