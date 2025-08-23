@@ -15,7 +15,7 @@ export default function FoodCart({id , name, price , image , des , notify}) {
                 <p className="card-text">{des}</p>
                 <div className='d-flex justify-content-around align-items-center'>
                     <span>$ {price}</span>
-                    <button onClick={() => dispatch(addToCart({id , name , price , image })) & notify()}
+                    <button onClick={() => dispatch(addToCart({id , name , price , image })) & notify(name)}
                      className="btn btn-warning">Add to cart</button>
                 </div>
                 </div>

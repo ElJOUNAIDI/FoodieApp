@@ -6,8 +6,8 @@ export default function FoodItems() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const notify = () => toast.success('Food added to cart !');
-  
+  const notify = (name) => toast.success(`${name} added to cart !`);
+
   useEffect(() => {
     const fetchFood = async () => {
       try {

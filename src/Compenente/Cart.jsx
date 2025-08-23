@@ -20,7 +20,7 @@ function Cart() {
                         cart.length > 0 ? cart.map((food) => {
                             return (
                                 <ItemCard 
-                                key={food.id} 
+                                // key={food.id} 
                                 id={food.id}
                                 name={food.name}
                                 price={food.price}
