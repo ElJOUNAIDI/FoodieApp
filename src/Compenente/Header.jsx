@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setSearchQuery } from "../redux/slices/SearchSlice";
+import { Link } from "react-router-dom";
 export default function Header() {
   const dispatch = useDispatch();
 
@@ -15,6 +16,11 @@ export default function Header() {
       <nav className="navbar ">
         <div className="container">
           <a className="navbar-brand"  href="/"><img src="./logo.png" alt="" /></a>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" style={{ color: '#fff' }} to="/Home1">Restaurant</Link>
+            </li>
+          </ul>
           <form className="d-flex" role="search" onSubmit={handleSearch}>
             <input
               className="form-control me-2"
